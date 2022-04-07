@@ -1,0 +1,6 @@
+
+FROM redis
+
+MAINTAINER User
+
+EXPOSE 6379
