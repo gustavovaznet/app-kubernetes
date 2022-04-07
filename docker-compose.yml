@@ -1,0 +1,44 @@
+
+version: '2'
+
+services:
+    
+    nginx:
+        restart: "always"
+        image: registry.rancher.signallink.us/{user}/nginx
+        ports:
+            - "80:80"
+        links:
+            - node
+            
+    redis:
+        restart: "always"
+        image: registry.rancher.signallink.us/{user}/redis
+        ports:
+            - 6379
+
+    mysql:
+        restart: "always"
+        image: z
+        ports:
+            - 3306
+        environment:
+            MYSQL_ROOT_PASSWORD: 9125
+            MYSQL_DATABASE: books
+            MYSQL_USER: api
+            MYSQL_PASSWORD: 9125
+
+    node:
+        restart: "always"
+        image: registry.rancher.signallink.us/{user}/node
+        links:
+            - redis
+            - mysql
+        ports:
+            - 8080
+        volumes:
+            -  volumeteste:/tmp/volumeteste
+
+volumes:
+    volumeteste:
+        external: false
