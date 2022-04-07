@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "APP",
+  "author": "User <user@example.com>",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.13.3",
+    "redis": "",
+    "mysql": ""
+  }
+}
